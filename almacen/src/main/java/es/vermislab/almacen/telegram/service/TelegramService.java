@@ -1,5 +1,6 @@
 package es.vermislab.almacen.telegram.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,10 @@ public class TelegramService {
 		default:
 			break;
 		}
-		return elementos.get();
-
+		if(!elementos.isPresent()) {
+			return new ArrayList(); 
+		} else {
+			return elementos.get();
+			}
 	}
 }
